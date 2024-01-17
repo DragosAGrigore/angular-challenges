@@ -9,7 +9,7 @@ export class CityStore {
   cities = computed(this.#cities);
 
   addAll(cities: City[]) {
-    this.#cities.update((_) => [...cities]);
+    this.#cities.set(cities);
   }
 
   addOne(city: City) {

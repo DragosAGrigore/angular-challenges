@@ -13,10 +13,10 @@ import { ListItemTemplateDirective } from '../../utils/list-item-template.direct
   selector: 'app-student-card',
   template: `<app-card
     class="bg-light-green"
-    [list]="students$ | async"
+    [list]="students()"
     (added)="addNewItem()">
     <img src="assets/img/student.webp" width="200px" />
-    <ng-template listItemTemplate #rowRef let-student>
+    <ng-template listItemTemplate let-student>
       <app-list-item (deleted)="deleteStudent(student.id)">
         {{ student.firstname }}
       </app-list-item>
@@ -39,7 +39,7 @@ import { ListItemTemplateDirective } from '../../utils/list-item-template.direct
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StudentCardComponent implements OnInit {
-  students$ = this.store.students$;
+  students = this.store.students;
 
   constructor(private http: FakeHttpService, private store: StudentStore) {}
 

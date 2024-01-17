@@ -16,7 +16,7 @@ import { ListItemTemplateDirective } from '../../utils/list-item-template.direct
     [list]="cities()"
     (added)="addNewItem()">
     <img src="assets/img/teacher.png" width="200px" />
-    <ng-template listItemTemplate #rowRef let-city>
+    <ng-template listItemTemplate let-city>
       <app-list-item (deleted)="deleteCity(city.id)">
         {{ city.name }}
       </app-list-item>
